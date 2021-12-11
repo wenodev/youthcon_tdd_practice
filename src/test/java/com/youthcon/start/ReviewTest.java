@@ -7,10 +7,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ReviewTest {
 
     @Test
-    void create_review(){
-        Review review = new Review("별로에요", "010-1234-1234");
+    void 후기가_100글자_이상이면_생성된다(){
+        String content = "별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요";
+        String phoneNumber = "010-1234-1234";
 
-        assertThat(review.getContent()).isEqualTo("별로에요");
+        Review review = new Review(content, phoneNumber);
+
+        assertThat(review.getContent()).isEqualTo(content);
     }
 
 }
