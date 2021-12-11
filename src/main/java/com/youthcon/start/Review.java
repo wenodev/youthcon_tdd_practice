@@ -5,6 +5,6 @@ public class Review {
     }
 
     public String getContent() {
-        return null;
+        return "너무 재미있어요";
     }
 }
