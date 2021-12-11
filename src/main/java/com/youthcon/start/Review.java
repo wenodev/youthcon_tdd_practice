@@ -6,9 +6,7 @@ public class Review {
     private String phoneNumber;
 
     public Review(String content, String phoneNumber) {
-        if (content.length() < 100){
-            throw new IllegalArgumentException();
-        }
+        validateContent(content);
 
         this.content = content;
         this.phoneNumber = phoneNumber;
@@ -19,10 +17,13 @@ public class Review {
     }
 
     public void changeContent(String content) {
+        validateContent(content);
+        this.content = content;
+    }
+
+    private void validateContent(String content) {
         if (content.length() < 100){
             throw new IllegalArgumentException();
         }
-
-        this.content = content;
     }
 }
