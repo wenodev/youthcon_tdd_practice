@@ -4,4 +4,7 @@ public class Review {
     public Review(String content, String phoneNumber) {
     }
 
+    public String getContent() {
+        return null;
+    }
 }
