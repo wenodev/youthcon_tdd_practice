@@ -17,4 +17,12 @@ public class Review {
     public String getContent() {
         return this.content;
     }
+
+    public void changeContent(String content) {
+        if (content.length() < 100){
+            throw new IllegalArgumentException();
+        }
+
+        this.content = content;
+    }
 }
