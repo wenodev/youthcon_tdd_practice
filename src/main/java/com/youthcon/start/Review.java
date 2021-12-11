@@ -6,6 +6,8 @@ public class Review {
     private String phoneNumber;
 
     public Review(String content, String phoneNumber) {
+        this.content = content;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getContent() {
