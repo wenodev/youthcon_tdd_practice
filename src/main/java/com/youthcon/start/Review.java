@@ -1,2 +1,4 @@
-package com.youthcon.start;public class Review {
+package com.youthcon.start;
+
+public class Review {
 }
