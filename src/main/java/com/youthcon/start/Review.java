@@ -6,6 +6,10 @@ public class Review {
     private String phoneNumber;
 
     public Review(String content, String phoneNumber) {
+        if (content.length() < 100){
+            throw new IllegalArgumentException();
+        }
+
         this.content = content;
         this.phoneNumber = phoneNumber;
     }
