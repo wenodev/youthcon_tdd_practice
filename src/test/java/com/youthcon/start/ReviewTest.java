@@ -19,7 +19,7 @@ public class ReviewTest {
 
     @Test
     void 후기가_100글자_미만이면_예외가_발생한다(){
-        String content = "별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요";
+        String content = "별로";
         String phoneNumber = "010-1234-1234";
 
         assertThatThrownBy(() ->
