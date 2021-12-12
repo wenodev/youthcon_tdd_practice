@@ -4,10 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.mock;
 
 public class ReviewServiceTest {
 
-    private ReviewRepository reviewRepository;
+    private ReviewRepository reviewRepository = mock(ReviewRepository.class);
     ReviewService reviewService = new ReviewService(reviewRepository);
 
     @Test
@@ -15,12 +18,14 @@ public class ReviewServiceTest {
         // 준비
         String content = "1별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요";
         String phoneNumber = "010-1234-1234";
-        reviewRepository.save();
+
+        given(reviewRepository.save(any(Review.class))).willReturn(new Review(content, phoneNumber));
 
         // 실행
         Review review = reviewService.create(content, phoneNumber);
 
         // 검증
+        assertThat(review.getId).isEqualTo(1L);
         assertThat(review.getContent()).isEqualTo(content);
     }
 
