@@ -9,6 +9,6 @@ public class ReviewService {
     }
 
     public Review create(String content, String phoneNumber) {
-        return new Review(content, phoneNumber);
+        return reviewRepository.save(new Review(content, phoneNumber));
     }
 }
