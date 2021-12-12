@@ -1,4 +1,4 @@
-package com.youthcon.start;
+package com.youthcon.start.review;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

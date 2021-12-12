@@ -1,4 +1,4 @@
-package com.youthcon.start;
+package com.youthcon.start.review;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
