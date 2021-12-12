@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.ResultActions;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -41,6 +42,25 @@ class ReviewControllerTest {
         resultActions
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("content").value(existedContent));
+    }
+
+    @Test
+    public void 선물_발송() throws Exception {
+        // 준비
+        given(reviewService.getById(existedId))
+                .willReturn(Review.builder()
+                        .content(existedContent)
+                        .confirm(true)
+                        .build());
+
+        // 실행
+        ResultActions resultActions = mockMvc.perform(post("/reviews/" + existedId ));
+
+        // 검증
+        resultActions
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("content").value(existedContent))
+                .andExpect(jsonPath("confirm").value(true));
     }
 
 }

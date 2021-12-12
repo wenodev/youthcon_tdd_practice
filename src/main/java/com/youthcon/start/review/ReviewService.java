@@ -17,4 +17,8 @@ public class ReviewService {
     public Review getById(Long id) {
         return reviewRepository.findById(id).orElseThrow(()-> new ReviewNotFoundException("no review id : " + id));
     }
+
+    public Review confirm(Long id) {
+        return null;
+    }
 }
