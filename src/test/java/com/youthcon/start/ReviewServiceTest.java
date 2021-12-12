@@ -7,6 +7,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class ReviewServiceTest {
 
+    private ReviewRepository reviewRepository;
     ReviewService reviewService = new ReviewService(reviewRepository);
 
     @Test
@@ -14,6 +15,7 @@ public class ReviewServiceTest {
         // 준비
         String content = "1별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요별로에요";
         String phoneNumber = "010-1234-1234";
+        reviewRepository.save();
 
         // 실행
         Review review = reviewService.create(content, phoneNumber);
