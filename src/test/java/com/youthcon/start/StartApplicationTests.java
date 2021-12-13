@@ -1,10 +1,13 @@
 package com.youthcon.start;
 
-
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
+import static org.assertj.core.api.Assertions.assertThat;
 
 /*
 시나리오
@@ -20,5 +23,11 @@ class StartApplicationTests {
 
 	@Autowired
 	private TestRestTemplate restTemplate;
+
+	@Test
+	void 후기_조회(){
+		ResponseEntity<Review> response = restTemplate.getForEntity("/reviews/1", Review.class);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+	}
 
 }
