@@ -1,10 +1,15 @@
 package com.youthcon.start;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
+import io.restassured.RestAssured;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 /*
 시나리오
@@ -17,8 +22,5 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class StartApplicationTests {
-
-	@Autowired
-	private TestRestTemplate restTemplate;
 
 }
