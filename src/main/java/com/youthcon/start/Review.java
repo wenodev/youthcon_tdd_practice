@@ -1,0 +1,36 @@
+package com.youthcon.start;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Review {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String content;
+
+    public Review(){
+    }
+
+    public Review(Long id, String content) {
+        this.id = id;
+        this.content = content;
+    }
+
+    public Long getId(){
+        return id;
+    }
+
+    public String getContent(){
+        return content;
+    }
+
+}
