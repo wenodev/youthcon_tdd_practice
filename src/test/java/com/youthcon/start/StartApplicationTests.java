@@ -1,6 +1,15 @@
 package com.youthcon.start;
 
+import io.restassured.RestAssured;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 /*
 시나리오
@@ -13,4 +22,30 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class StartApplicationTests {
+
+    @LocalServerPort
+    private int port;
+
+    @BeforeEach
+    void setUp(){
+        RestAssured.port = port;
+    }
+
+    @Test
+    void 후기_조회(){
+        given()
+                .accept(MediaType.APPLICATION_JSON_VALUE)
+        .when()
+                .get("/reviews/1")
+        .then()
+                .statusCode(HttpStatus.OK.value())
+                .assertThat().body("id", equalTo(1))
+                .assertThat().body("content", equalTo("good"));
+    }
+
+    @Test
+    void 쿠폰_선물(){
+
+    }
+
 }
