@@ -15,6 +15,10 @@ public class Review {
     public Review() {
     }
 
+    public Review(String content) {
+        this.content = content;
+    }
+
     public Review(Long id, String content) {
         this.id = id;
         this.content = content;

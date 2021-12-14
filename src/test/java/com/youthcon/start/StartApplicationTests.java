@@ -36,7 +36,7 @@ class StartApplicationTests {
         given()
                 .accept(MediaType.APPLICATION_JSON_VALUE)
         .when()
-                .get("/reviews/1")
+                .get("/reviews/3")
         .then()
                 .statusCode(HttpStatus.OK.value())
                 .assertThat().body("id", equalTo(1))
