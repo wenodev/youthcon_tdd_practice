@@ -17,7 +17,6 @@ package com.youthcon.start;
 - [ ] 선물은 후기당 한번만 요청 할 수 있습니다.
 - [ ] 선물하기에 성공하면 후기의 현재 상태를 응답합니다. (200 OK)
 - [ ] 선물하기는 아래의 API를 호출하여 수행합니다.
-
  */
 class StartApplicationTests {
 }
