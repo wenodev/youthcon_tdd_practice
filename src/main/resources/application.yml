@@ -4,7 +4,7 @@ spring:
     username: sa
   sql:
     init:
-      mode: always
+      mode: never
   h2:
     console:
       enabled: true
