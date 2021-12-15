@@ -1,4 +1,10 @@
-package com.youthcon.start;
+package com.youthcon.practice;
+
+import io.restassured.RestAssured;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
 
 /*
 시나리오
@@ -18,5 +24,6 @@ package com.youthcon.start;
 - [ ] 선물하기에 성공하면 후기의 현재 상태를 응답합니다. (200 OK)
 - [ ] 선물하기는 아래의 API를 호출하여 수행합니다.
  */
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class StartApplicationTests {
 }

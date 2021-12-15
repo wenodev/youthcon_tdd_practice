@@ -1,4 +1,4 @@
-package com.youthcon.start;
+package com.youthcon.practice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
