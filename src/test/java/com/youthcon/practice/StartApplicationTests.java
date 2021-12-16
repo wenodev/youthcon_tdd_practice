@@ -1,6 +1,15 @@
 package com.youthcon.practice;
 
+import io.restassured.RestAssured;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 /*
 시나리오
@@ -20,5 +29,41 @@ import org.springframework.boot.test.context.SpringBootTest;
 - [ ] 선물하기에 성공하면 후기의 현재 상태를 응답합니다. (200 OK)
 - [ ] 선물하기는 아래의 API를 호출하여 수행합니다.
  */
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class StartApplicationTests {
+
+    @LocalServerPort
+    private int port;
+
+    @BeforeEach
+    void setUp(){
+        RestAssured.port = port;
+    }
+
+    @Test
+    void 후기_조회_성공(){
+        // 준비, arrange, given
+        given()
+                .accept(MediaType.APPLICATION_JSON_VALUE)
+        // 실행, act, when
+        .when()
+                .get("/reviews/1")
+        // 검증, assert, then
+        .then()
+                .statusCode(HttpStatus.OK.value())
+                .assertThat().body("id", equalTo(1))
+                .assertThat().body("content", equalTo("재밌어요"))
+                .assertThat().body("phoneNumber", equalTo("010-1111-2222"));
+    }
+
+    @Test
+    void 후기_조회_실패(){
+        assert false;
+    }
+
+    @Test
+    void 선물하기(){
+        assert false;
+    }
+
 }
