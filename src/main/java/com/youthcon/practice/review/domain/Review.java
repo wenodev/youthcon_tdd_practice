@@ -44,7 +44,7 @@ public class Review {
 
     public Boolean getIsSent() { return isSent;}
 
-    public void makeTrue() {
-        this.isSent = true;
+    public void makeTrue(boolean isSent) {
+        this.isSent = isSent;
     }
 }

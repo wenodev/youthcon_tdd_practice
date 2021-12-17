@@ -80,9 +80,6 @@ class StartApplicationTests {
         // 검증
         .then()
                 .statusCode(HttpStatus.OK.value())
-                .assertThat().body("id", equalTo(1))
-                .assertThat().body("content", equalTo("재밌어요"))
-                .assertThat().body("phoneNumber", equalTo("010-1111-2222"))
                 .assertThat().body("isSent", equalTo(true));
     }
 

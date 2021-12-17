@@ -14,4 +14,12 @@ public class GiftApi {
         return response.getStatusCode().is2xxSuccessful() ? true : false;
     }
 
+    public boolean send(String target) {
+        return send(target, 10000L);
+    }
+
+    public boolean send(String target, Long amount) {
+        return true;
+    }
+
 }
