@@ -1,7 +1,5 @@
 package com.youthcon.practice;
 
-import org.springframework.boot.test.context.SpringBootTest;
-
 /*
 시나리오
 - 리뷰를 조회할 수 있게 해주세요.
@@ -20,5 +18,5 @@ import org.springframework.boot.test.context.SpringBootTest;
 - [ ] 선물하기에 성공하면 후기의 현재 상태를 응답합니다. (200 OK)
 - [ ] 선물하기는 아래의 API를 호출하여 수행합니다.
  */
-class StartApplicationTests {
+class AcceptanceTest {
 }
